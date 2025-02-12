@@ -1,3 +1,5 @@
+"use client";
+
 import Image from "next/image";
 import backgroundImage from "../../../../public/images/background-hero.png";
 import { Header } from "@/components/header";
@@ -6,8 +8,11 @@ import { IoLocationSharp } from "react-icons/io5";
 import { MdOutlineAttachMoney } from "react-icons/md";
 import { FaCar } from "react-icons/fa6";
 import { PiBarcode } from "react-icons/pi";
+import { useState } from "react";
 
 export function Hero() {
+  const [showFilter, setShowFilter] = useState<boolean>(false);
+
   return (
     <section>
       <div className="relative h-[500px] flex items-center justify-center">
@@ -25,19 +30,50 @@ export function Hero() {
           </div>
         </div>
 
-        <div className="relative z-10 text-white text-center">
+        <div className="relative z-10 text-white text-center mt-10 lg:mt-0">
           <h1 className="text-4xl font-semibold uppercase">
             Encontre o imóvel dos seus sonhos
           </h1>
           <p className="text-lg mt-2 font-medium">
             A melhor plataforma para compra e aluguel
           </p>
+
+          <div className="block lg:hidden mt-4">
+            <button
+              className="py-3 px-12 bg-[#FFAC12] hover:bg-[#fcb83b] text-[#271A00] rounded-md font-semibold transition-all duration-300"
+              onClick={() => setShowFilter(true)}
+            >
+              Encontre seu imóvel
+            </button>
+          </div>
         </div>
       </div>
 
-      <div className="relative -top-28 left-1/2 transform -translate-x-1/2 w-[80%]">
-        <div className="bg-[#271A00] py-5 px-10 text-[#F1FAEE] rounded-md">
-          <div className="grid lg:grid-cols-12 gap-8">
+      <div
+        className={`${
+          showFilter
+            ? "fixed inset-0 bg-black/50 flex items-center justify-center z-50"
+            : "hidden lg:block relative -top-32 left-1/2 transform -translate-x-1/2 w-[80%]"
+        } `}
+      >
+        <div
+          className={`bg-[#271A00] py-8 px-10 text-[#F1FAEE] rounded-md ${
+            showFilter &&
+            "w-[90%] max-w-lg relative max-h-[80vh] overflow-y-auto custom-scrollbar"
+          }`}
+        >
+          <button
+              onClick={() => setShowFilter(false)}
+              className="block lg:hidden absolute top-2 right-2 text-[#F1FAEE] text-xl font-bold"
+            >
+              ✖
+            </button>
+
+          <div className="hidden lg:block relative py-2 rounded-lg text-black font-semibold bg-[#FFAC12] -top-12 text-center w-[50%] left-1/2 transform -translate-x-1/2">
+            Encontre seu imóvel
+          </div>
+
+          <div className="grid lg:grid-cols-12 gap-8 lg:-mt-6">
             <div className="lg:col-span-3">
               <label className="flex items-center space-x-3 font-semibold">
                 <FaBuilding />
