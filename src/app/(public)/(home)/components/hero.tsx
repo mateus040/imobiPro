@@ -51,7 +51,7 @@ export function Hero() {
         className={`${
           showFilter
             ? "fixed inset-0 bg-black/50 flex items-center justify-center z-50"
-            : "hidden lg:block relative -top-32 left-1/2 transform -translate-x-1/2 w-[80%]"
+            : "hidden lg:block relative -top-32 -mb-20 left-1/2 transform -translate-x-1/2 w-[80%]"
         } `}
       >
         <div
