@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import backgroundImage from "../../../../public/images/background-hero.png";
+import backgroundImage from "../../../../../public/images/background-hero.png";
 import { Header } from "@/components/header";
 import { FaBed, FaBuilding, FaHouse, FaMapLocationDot } from "react-icons/fa6";
 import { IoLocationSharp } from "react-icons/io5";
@@ -25,9 +25,7 @@ export function Hero() {
         />
 
         <div className="absolute top-0 left-0 w-full">
-          <div className="container mx-auto pt-6 pb-12 text-white">
-            <Header />
-          </div>
+          <Header />
         </div>
 
         <div className="relative z-10 text-white text-center mt-10 lg:mt-0">
@@ -63,11 +61,11 @@ export function Hero() {
           }`}
         >
           <button
-              onClick={() => setShowFilter(false)}
-              className="block lg:hidden absolute top-2 right-2 text-[#F1FAEE] text-xl font-bold"
-            >
-              ✖
-            </button>
+            onClick={() => setShowFilter(false)}
+            className="block lg:hidden absolute top-2 right-2 text-[#F1FAEE] text-xl font-bold"
+          >
+            ✖
+          </button>
 
           <div className="hidden lg:block relative py-2 rounded-lg text-black font-semibold bg-[#FFAC12] -top-12 text-center w-[50%] left-1/2 transform -translate-x-1/2">
             Encontre seu imóvel
